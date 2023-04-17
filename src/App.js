@@ -1,18 +1,17 @@
 import ExpenseItems from "./Components/ExpenseItems";
 
-for (let i = 0; i <= 100; i++) { }
 function App() {
-  let obj = {
-    date: "13 March",
+  let obj = [{
+    date: new Date(),
     location: "Prayagraj",
     amount: 12000,
     type: "Insurance"
-  }
+  }]
   return (
 
     <div>
       <h1>Expense Items</h1>
-      {Array(100).fill(<ExpenseItems date={obj.date} location={obj.location} amount={obj.amount} type={obj.type} />)}
+      <ExpenseItems date={obj[0].date} location={obj[0].location} amount={obj[0].amount} type={obj[0].type} />
     </div>
 
   )
