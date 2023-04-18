@@ -1,6 +1,6 @@
-import ExpenseItems from "./Components/ExpenseItems";
+import ExpenseItems from "./Components/Expense/ExpenseItems";
 
-function App() {
+const App=() => {
   let obj = [{
     date: new Date(),
     location: "Prayagraj",
