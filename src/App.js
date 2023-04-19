@@ -1,4 +1,5 @@
 import ExpenseItems from "./Components/Expense/ExpenseItems";
+import NewExpense from "./Components/NewExpense/NewExpense";
 
 const App=() => {
   let obj = [{
@@ -10,7 +11,7 @@ const App=() => {
   return (
 
     <div>
-      <h1>Expense Items</h1>
+      <NewExpense/>
       <ExpenseItems date={obj[0].date} location={obj[0].location} amount={obj[0].amount} type={obj[0].type} />
     </div>
 
