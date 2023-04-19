@@ -3,23 +3,35 @@ import "./ExpenseForm.css"
 
 const ExpenseForm = () => {
     const [enteredtitle,setenteredtitle] = useState("")
+    const [entereddate,setentereddate] = useState("")
+    const [enteredamount,setenteredamount] = useState("")
+    const [enteredlocation,setenteredlocation] = useState("")
+    
+    
     const titlechangehandler = (e) =>{
         setenteredtitle(e.target.value)
     }
-    const [enteredamount,setenteredamount] = useState("")
     const amountchangehandler = (e) =>{
         setenteredamount(e.target.value)
     }
-    const [enteredlocation,setenteredlocation] = useState("")
     const locationchangehandler = (e) =>{
         setenteredlocation(e.target.value)
     }
-    const [entereddate,setentereddate] = useState("")
     const datechangehandler = (e) =>{
         setentereddate(e.target.value)
     }
+    const submithandler = (e) =>{
+        e.preventDefault()
+        const expensedata = {
+            title: enteredtitle,
+            date: new Date(entereddate),
+            location: enteredlocation,
+            amount: enteredamount
+        }
+        console.log(expensedata)
+    }
 
-    return(<form>
+    return(<form onSubmit={submithandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>Title</label>
