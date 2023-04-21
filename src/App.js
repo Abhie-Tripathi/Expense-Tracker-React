@@ -8,11 +8,11 @@ const App=() => {
     date: new Date(),
     location: "Prayagraj",
     amount: 12000,
-    type: "Insurance"
+    type: "Insurance",
+    id: Math.random()
   }])
   const getexpenses = (expenses) =>{
-    newobj([...obj,expenses])
-    console.log(obj)
+    newobj([expenses,...obj])
   }
   
   return (

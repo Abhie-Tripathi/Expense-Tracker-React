@@ -12,8 +12,8 @@ const ExpenseItems = (props) => {
         <div className="expenses">
         <ExpensesFilter/>
         
-        {props.object.map(function(obj, i){
-        return( <div className="expense-item">
+        {props.object.map(function(obj){
+        return( <div className="expense-item" key={obj.id}>
         <ExpenseDate date ={obj.date}/>
         <ExpenseDetails type = {obj.type} amount = {obj.amount} location = {obj.location}/>
         </div> )})}
