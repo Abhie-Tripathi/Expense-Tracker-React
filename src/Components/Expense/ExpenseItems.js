@@ -4,22 +4,25 @@ import ExpenseDetails from "./ExpenseDetails"
 import "./ExpenseItems.css"
 import "./Expense.css"
 import React,{ useState } from "react"
+import ExpensesFilter from "./ExpenseFilter"
 
 const ExpenseItems = (props) => {
-    const [amount, setamount] = useState(props.amount)
-
-    const DeleteHandler=()=>{
-        setamount(100)
-    }
-    return (
+    
+    return (<>
         <div className="expenses">
-        <div className="expense-item">
-            <ExpenseDate date ={props.date}/>
-            <ExpenseDetails type = {props.type} amount = {amount} location = {props.location}/>
-            <button onClick={DeleteHandler}>Change Expense</button>
+        <ExpensesFilter/>
+        
+        {props.object.map(function(obj, i){
+        return( <div className="expense-item">
+        <ExpenseDate date ={obj.date}/>
+        <ExpenseDetails type = {obj.type} amount = {obj.amount} location = {obj.location}/>
+        </div> )})}
         </div>
-        </div>
-    )
-}
+        </>)}
+            
+
+            
+
+            
 
 export default ExpenseItems

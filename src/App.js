@@ -19,10 +19,7 @@ const App=() => {
 
     <div>
       <NewExpense ongetexpenses={getexpenses}/>
-      <ExpensesFilter/>
-      {obj.map(function(obj, i){
-        return <ExpenseItems date={obj.date} location={obj.location} amount={obj.amount} type={obj.type} />;
-    })}
+      <ExpenseItems object = {obj} />;
       
     </div>
     
