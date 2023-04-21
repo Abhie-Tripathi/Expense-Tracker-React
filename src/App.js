@@ -1,19 +1,29 @@
 import ExpenseItems from "./Components/Expense/ExpenseItems";
 import NewExpense from "./Components/NewExpense/NewExpense";
+import { useState } from "react";
 
 const App=() => {
-  let obj = [{
+  const [obj,newobj] = useState([{
     date: new Date(),
     location: "Prayagraj",
     amount: 12000,
     type: "Insurance"
-  }]
+  }])
+  const getexpenses = (expenses) =>{
+    newobj([...obj,expenses])
+    console.log(obj)
+  }
+  
   return (
 
     <div>
-      <NewExpense/>
-      <ExpenseItems date={obj[0].date} location={obj[0].location} amount={obj[0].amount} type={obj[0].type} />
+      <NewExpense ongetexpenses={getexpenses}/>
+      {obj.map(function(obj, i){
+        return <ExpenseItems date={obj.date} location={obj.location} amount={obj.amount} type={obj.type} />;
+    })}
+      
     </div>
+    
 
   )
 }

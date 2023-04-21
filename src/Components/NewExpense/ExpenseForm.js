@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./ExpenseForm.css"
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredtitle,setenteredtitle] = useState("")
     const [entereddate,setentereddate] = useState("")
     const [enteredamount,setenteredamount] = useState("")
@@ -23,31 +23,35 @@ const ExpenseForm = () => {
     const submithandler = (e) =>{
         e.preventDefault()
         const expensedata = {
-            title: enteredtitle,
+            type: enteredtitle,
             date: new Date(entereddate),
             location: enteredlocation,
             amount: enteredamount
         }
-        console.log(expensedata)
+        props.onsavedexpenses(expensedata)
+        setenteredamount("")
+        setenteredtitle("")
+        setenteredlocation("")
+        setentereddate("")
     }
 
     return(<form onSubmit={submithandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>Title</label>
-                <input type="text" onChange={titlechangehandler}/>
+                <input type="text" value={enteredtitle} onChange={titlechangehandler}/>
             </div>
             <div className="new-expense__control">
                 <label>location</label>
-                <input type="text" onChange={locationchangehandler}/>
+                <input type="text" value={enteredlocation} onChange={locationchangehandler}/>
             </div>
             <div className="new-expense__control">
                 <label>Date</label>
-                <input type="date" min="2019-01-01" max="2022-12-31" onChange={datechangehandler}/>
+                <input type="date" min="2019-01-01" max="2022-12-31" value={entereddate} onChange={datechangehandler}/>
             </div>
             <div className="new-expense__control">
                 <label>Amount</label>
-                <input type="number" min="0.01" step="0.01" onChange={amountchangehandler}/>
+                <input type="number" min="0.01" step="0.01" value={enteredamount} onChange={amountchangehandler}/>
             </div>
             <div className="new-expense__actions">
                 <button type="submit">Add Expense</button>
