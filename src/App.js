@@ -1,6 +1,7 @@
 import ExpenseItems from "./Components/Expense/ExpenseItems";
 import NewExpense from "./Components/NewExpense/NewExpense";
 import { useState } from "react";
+import ExpensesFilter from "./Components/Expense/ExpenseFilter";
 
 const App=() => {
   const [obj,newobj] = useState([{
@@ -18,6 +19,7 @@ const App=() => {
 
     <div>
       <NewExpense ongetexpenses={getexpenses}/>
+      <ExpensesFilter/>
       {obj.map(function(obj, i){
         return <ExpenseItems date={obj.date} location={obj.location} amount={obj.amount} type={obj.type} />;
     })}
