@@ -1,11 +1,12 @@
-import "./ExpenseItems.css"
-const ExpenseDetails = (props)=>{
+import "./ExpenseItems.css";
+const ExpenseDetails = (props) => {
+  return (
+    <>
+      <h2>{props.type}</h2>
+      <h2>{props.location}</h2>
+      <div className="expense-item__price">${props.amount}</div>
+    </>
+  );
+};
 
-    return (<>
-        <h2>{props.type}</h2>
-        <h2>{props.location}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-    </>)
-}
-
-export default ExpenseDetails
+export default ExpenseDetails;
