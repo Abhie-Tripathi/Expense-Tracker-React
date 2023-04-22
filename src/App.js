@@ -5,14 +5,15 @@ import ExpensesFilter from "./Components/Expense/ExpenseFilter";
 
 const App=() => {
   const [obj,newobj] = useState([{
-    date: new Date(),
+    date: new Date("2022-03-25"),
     location: "Prayagraj",
     amount: 12000,
     type: "Insurance",
     id: Math.random()
   }])
   const getexpenses = (expenses) =>{
-    newobj([expenses,...obj])
+    const expenseswithkeys = {...expenses,id: Math.random()}
+    newobj([expenseswithkeys,...obj])
   }
   
   return (
